@@ -1,2 +1,1 @@
-# CLanguage
-codes what i created from C Language using "DEV-C"
+You need to download and Install "DEV-C++" or something like it to Compile these files
