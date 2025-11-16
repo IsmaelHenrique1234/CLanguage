@@ -3,7 +3,7 @@
 #include <string.h>
 #include <locale.h>
 const int MAX=50;// limitando o tamanho do vetor
-int ordenado=0;// vari·vel p/ controlar a ordenaÁ„o dos dados
+int ordenado=0;// vari√°vel p/ controlar a ordena√ß√£o dos dados
 // Tipo de dado especial (Registro)
 typedef struct TProduto{
     long int codigo;
@@ -21,13 +21,13 @@ typedef struct TProduto{
     float lucro;
 }Tproduto;
 
-//escopo do programa/funÁıes criadas, TOTAL = 15
+//escopo do programa/fun√ß√µes criadas, TOTAL = 15
 void leitura(Tproduto estoque[], int *tamanho);//gera o arquivo .dat na primeira vez
-void gravacao(Tproduto estoque[], int tamanho);// realiza a gravaÁ„o dos dado no arquivo
-int pesquisabinaria(Tproduto estoque[], int chave, int tamanho);// busca e retorna a posiÁ„o do produto no vetor
+void gravacao(Tproduto estoque[], int tamanho);// realiza a grava√ß√£o dos dado no arquivo
+int pesquisabinaria(Tproduto estoque[], int chave, int tamanho);// busca e retorna a posi√ß√£o do produto no vetor
 void pesquisaSequencial(Tproduto estoque[], int tamanho);
-int vazio (int tamanho);// funÁ„o auxiliar para da pesquisa bin·ria
-void ordena(Tproduto estoque[], int tamanho);//ordena o cadastro dos produtos por cÛdigo
+int vazio (int tamanho);// fun√ß√£o auxiliar para da pesquisa bin√°ria
+void ordena(Tproduto estoque[], int tamanho);//ordena o cadastro dos produtos por c√≥digo
 void inclusao(Tproduto estoque[],int *tamanho);
 int gerarCodigo(Tproduto estoque[], int tamanho);
 void relatorio_produto (Tproduto estoque[], int tamanho);
@@ -44,16 +44,12 @@ int main(){
     int tamanho=0, opc, opcao;
     leitura(estoque, &tamanho);// abre o arquivo da base de dados
     do{
-        printf ("\n 1- CADASTRAR\n");
-        printf (" 2- CONSULTAR\n");
-    	printf (" 3- ALTERAR\n");
-        printf (" 4- EXCLUIR\n");
-    	printf (" 5- RELAT”RIO DOS PRODUTOS\n");
-    	printf (" 6- RELAT”RIO DAS PRE«OS\n");
-    	printf (" 7- RELAT”RIO DE MARGEM DE LUCRO\n");
-    	printf (" 8- MOVIMENTA«√O DE COMPRAS\n");
-        printf (" 0- SAIR\n");
-        printf ("\nESCOLHA A OP«√O DESEJADA:\n");
+        printf ("\n (1)- CADASTRAR\t(5)- RELAT√ìRIO DOS PRODUTOS\n");
+        printf (" (2)- CONSULTAR\t(6)- RELAT√ìRIO DAS PRE√áO\n");
+    	printf (" (3)- ALTERAR\t(7)- RELAT√ìRIO DE MARGEM DE LUCRO\n");
+        printf (" (4)- EXCLUIR\t(8)- MOVIMENTA√á√ÉO DE COMPRAS\n");
+        printf ("\t(0)- SAIR\n");
+        printf ("\nESCOLHA A OP√á√ÉO DESEJADA:\n");
         scanf ("%d",&opcao); fflush(stdin);
         system("cls");
         switch (opcao){
@@ -103,18 +99,18 @@ int main(){
 				system("pause");
 				exit(0);
 				break;
-            default: printf("OPC√O INV¡LIDA!\n");
+            default: printf("OPC√ÉO INV√ÅLIDA!\n");
             	system("pause");
             	system("cls");
         }
     }while (opcao!=0);
-             gravacao(estoque, tamanho); // grava apÛs realizada as operaÁıes
+             gravacao(estoque, tamanho); // grava ap√≥s realizada as opera√ß√µes
 	return 0;
 }
 
 void leitura(Tproduto estoque[], int *tamanho){
     FILE *arquivo;
-  	arquivo= fopen("estoque.dat", "a+b");	   /* abrimos para anexar, bin·rio */ 
+  	arquivo= fopen("estoque.dat", "a+b");	   /* abrimos para anexar, bin√°rio */ 
   	if (!arquivo){
   		printf("Erro ao abrir arquivo!");
   		return;
@@ -133,7 +129,7 @@ void leitura(Tproduto estoque[], int *tamanho){
 void gravacao(Tproduto estoque[], int tamanho){
     FILE *arquivo;
     int i;
-    arquivo= fopen("estoque.dat", "w+b");	   /* abre e apaga o conte˙do do arquivo,bin·rio */ 
+    arquivo= fopen("estoque.dat", "w+b");	   /* abre e apaga o conte√∫do do arquivo,bin√°rio */ 
   	if (!arquivo){
   		printf("Erro ao abrir arquivo!");
   		return;
@@ -163,16 +159,16 @@ int pesquisabinaria(Tproduto estoque[], int chave, int tamanho){
         else
            final=meio-1;
     }
-    return -1; // n„o encontrou
+    return -1; // n√£o encontrou
 }
 int pesquisaSequencial(Tproduto estoque[], char chave[], int tamanho) {
-    for (int i = 0; i < tamanho; i++) { // Compara apenas o inÌcio do nome com a chave
+    for (int i = 0; i < tamanho; i++) { // Compara apenas o in√≠cio do nome com a chave
         if (strncmp(estoque[i].nome, chave, strlen(chave)) == 0) {
-            return i; // Retorna a posiÁ„o do primeiro encontrado
+            return i; // Retorna a posi√ß√£o do primeiro encontrado
         }
     }
 
-    return -1; // N„o encontrado
+    return -1; // N√£o encontrado
 }
 
 int vazio(int tamanho){
@@ -193,15 +189,15 @@ void ordena(Tproduto estoque[], int tamanho){
               	estoque[j]=aux;
             }
 }
-int gerarCodigo(Tproduto estoque[], int tamanho) { //funÁ„o de gerar codigo e evitar duplicaÁ„o de codigos
-    int codigo = 1; //comeÁar sempre com o menor n˙mero possivel = 1
-    for (int i = 0; i < tamanho; i++) { //verificaÁ„o do codigo
+int gerarCodigo(Tproduto estoque[], int tamanho) { //fun√ß√£o de gerar codigo e evitar duplica√ß√£o de codigos
+    int codigo = 1; //come√ßar sempre com o menor n√∫mero possivel = 1
+    for (int i = 0; i < tamanho; i++) { //verifica√ß√£o do codigo
         if (estoque[i].codigo == codigo)
             codigo++;
         else
             break;
     }
-    return codigo; //Retorna o menor cÛdigo disponÌvel
+    return codigo; //Retorna o menor c√≥digo dispon√≠vel
 }
 void inclusao(Tproduto estoque[],int *tamanho){
              if (*tamanho==MAX){ 
@@ -211,9 +207,9 @@ void inclusao(Tproduto estoque[],int *tamanho){
              Tproduto aux;
              char correto='n';
             if (pesquisabinaria(estoque, aux.codigo, *tamanho) <0){
-            	aux.codigo = gerarCodigo(estoque, *tamanho); //AUX.CODIGO recebe o codigo da funÁ„o
+            	aux.codigo = gerarCodigo(estoque, *tamanho); //AUX.CODIGO recebe o codigo da fun√ß√£o
             	do{
-                        printf ("Nome do Produto ...................................: "); //Por que "20[^\n]s"?, … pra considerar EspaÁos, ou usar funcao GETS pra facilitar a vida
+                        printf ("Nome do Produto ...................................: "); //Por que "20[^\n]s"?, √â pra considerar Espa√ßos, ou usar funcao GETS pra facilitar a vida
                         scanf ("%20[^\n]s",&aux.nome);
 						fflush(stdin);
                     }while(aux.nome<0);
@@ -223,7 +219,7 @@ void inclusao(Tproduto estoque[],int *tamanho){
 						fflush(stdin);
                     }while(aux.grupo<0);
                   do{
-                        printf ("DescriÁ„o do Produto ..............................: ");
+                        printf ("Descri√ß√£o do Produto ..............................: ");
                         scanf ("%40[^\n]s",&aux.descricao);
 						fflush(stdin);
                     }while(aux.descricao<0);
@@ -243,22 +239,22 @@ void inclusao(Tproduto estoque[],int *tamanho){
 						fflush(stdin);
                     }while(aux.quantidade<0);
                   do{
-                  		printf ("PreÁo de compra do produto ........................: ");
+                  		printf ("Pre√ßo de compra do produto ........................: ");
                   		scanf ("%f",&aux.pr_compra);
 						fflush(stdin);
 				  }while(aux.pr_compra<0);
 				  do{
-                  		printf ("PreÁo de venda do produto .........................: ");
+                  		printf ("Pre√ßo de venda do produto .........................: ");
                   		scanf ("%f",&aux.pr_venda);
 						fflush(stdin);
 				  }while(aux.pr_venda<0);
 				  do{
-                  		printf ("Margem de lucro mÌnima (em Porcentagem) ...........: ");
+                  		printf ("Margem de lucro m√≠nima (em Porcentagem) ...........: ");
                   		scanf ("%d",&aux.lucroMin);
 						fflush(stdin);
 				  }while(aux.lucroMin<0);
 				  do{
-                  		printf ("Quantidade mÌnima em estoque ......................: ");
+                  		printf ("Quantidade m√≠nima em estoque ......................: ");
                   		scanf ("%f",&aux.estoque_min);
 						fflush(stdin);
 				  }while(aux.estoque_min<0);
@@ -268,18 +264,18 @@ void inclusao(Tproduto estoque[],int *tamanho){
                   correto=getchar();
 				  fflush(stdin);
 				  if (correto != 's' && correto != 'S' && correto != 'n' && correto != 'N')
-				  printf("\nOP«√O INVALIDA\n\n");
+				  printf("\nOP√á√ÉO INVALIDA\n\n");
 			      }
                   while(correto != 's' && correto != 'S' && correto != 'n' && correto != 'N');
                   if (correto=='s'||correto=='S'){
-                       estoque [*tamanho] = aux;// faz a transferÍncia
+                       estoque [*tamanho] = aux;// faz a transfer√™ncia
                        (*tamanho) ++;
                        ordenado=0;
                        printf ("\tO CADASTRO FOI INCLUIDO!\n");
 					fflush(stdin);
                   }
                   else if (correto=='n' || correto=='N'){ 
-                       printf ("\tO CADASTRO N√O FOI INCLUIDO!\n");
+                       printf ("\tO CADASTRO N√ÉO FOI INCLUIDO!\n");
 				  }
 			}else 
     			printf ("\tCODIGO JA CADASTRADO!!\n");
@@ -298,7 +294,7 @@ void consulta(Tproduto estoque[], int tamanho) {
      }
      int selecao;
      do {
-     printf("COMO VOC  GOSTARIA DE PESQUISAR?\n\n(1) - C”DIGO (Bin·ria)\n(2) - NOME (Sequencial)\n\nEscolher de acordo com o n˙mero (ou 0 para voltar): ");
+     printf("COMO VOC√ä GOSTARIA DE PESQUISAR?\n\n(1) - C√ìDIGO (Bin√°ria)\n(2) - NOME (Sequencial)\n\nEscolher de acordo com o n√∫mero (ou 0 para voltar): ");
      scanf("%d", &selecao); fflush(stdin);
      if (selecao == 0) {
      system("cls");
@@ -310,12 +306,12 @@ void consulta(Tproduto estoque[], int tamanho) {
      		fflush(stdin);
             int posicao, i, codigo;
             char confirma;
-            printf("Digitar CÛdigo......: ");
+            printf("Digitar C√≥digo......: ");
 	        scanf("%d", &codigo);fflush(stdin);
             posicao=pesquisabinaria(estoque, codigo, tamanho);
     if (posicao>=0) {//encontrou registro
     printf("\n===========================================================================\n");
-    printf("Codigo: %ld\t\tNome do Produto: %s\t\tGrupo: %d\n\nDescriÁ„o: %s\tUnidade: %s\n\nFornecedor: %s\n\nPreÁo de Compra: %.2f \tPreÁo de Venda: %.2f \tLucro MÌnimo: %d%% \n\nQuantidade em Estoque: %.2f\t\tQuantidade MÌnima: %.2f\n",
+    printf("Codigo: %ld\t\tNome do Produto: %s\t\tGrupo: %d\n\nDescri√ß√£o: %s\tUnidade: %s\n\nFornecedor: %s\n\nPre√ßo de Compra: %.2f \tPre√ßo de Venda: %.2f \tLucro M√≠nimo: %d%% \n\nQuantidade em Estoque: %.2f\t\tQuantidade M√≠nima: %.2f\n",
 	estoque[posicao].codigo, estoque[posicao].nome, estoque[posicao].grupo, estoque[posicao].descricao, estoque[posicao].unidade, estoque[posicao].fornecedor, estoque[posicao].pr_compra, estoque[posicao].pr_venda, estoque[posicao].lucroMin, estoque[posicao].quantidade, estoque[posicao].estoque_min);
 	printf("---------------------------------------------------------------------------\n\n");
 	printf("APERTE ENTER PARA VOLTAR AO MENU"); 
@@ -324,7 +320,7 @@ void consulta(Tproduto estoque[], int tamanho) {
 	return;
 		 }
 		 else {
-		 	printf("\nO REGISTRO N√O EXISTE\n\n");
+		 	printf("\nO REGISTRO N√ÉO EXISTE\n\n");
 		 	printf("APERTE ENTER PARA VOLTAR AO MENU");
 		 	getchar(); fflush(stdin);
 		 	system("cls");
@@ -335,7 +331,7 @@ void consulta(Tproduto estoque[], int tamanho) {
 	 case 2: {
 	 int posicao, i, selecao;
 	 char busca[21];
-     char confirma, correto; // uma pra confirmar o codigo e outra para a alteraÁ„o
+     char confirma, correto; // uma pra confirmar o codigo e outra para a altera√ß√£o
      Tproduto aux;
      printf("Inserir o nome para alterar o codigo......: ");
 	 fgets(busca, 21, stdin);
@@ -343,7 +339,7 @@ void consulta(Tproduto estoque[], int tamanho) {
      posicao=pesquisaSequencial(estoque, busca, tamanho);
           if (posicao>=0) {//encontrou registro
     printf("\n===========================================================================\n");
-    printf("Codigo: %ld\tNome do Produto: %s\t\tGrupo: %d\n\nDescriÁ„o: %s\tUnidade: %s\n\nFornecedor: %s\n\nPreÁo de Compra: %.2f \tPreÁo de Venda: %.2f \tLucro MÌnimo: %d%% \n\nQuantidade em Estoque: %.2f\t\tQuantidade MÌnima: %.2f\n",
+    printf("Codigo: %ld\tNome do Produto: %s\t\tGrupo: %d\n\nDescri√ß√£o: %s\tUnidade: %s\n\nFornecedor: %s\n\nPre√ßo de Compra: %.2f \tPre√ßo de Venda: %.2f \tLucro M√≠nimo: %d%% \n\nQuantidade em Estoque: %.2f\t\tQuantidade M√≠nima: %.2f\n",
 	estoque[posicao].codigo, estoque[posicao].nome, estoque[posicao].grupo, estoque[posicao].descricao, estoque[posicao].unidade, estoque[posicao].fornecedor, estoque[posicao].pr_compra, estoque[posicao].pr_venda, estoque[posicao].lucroMin, estoque[posicao].quantidade, estoque[posicao].estoque_min);
 	printf("---------------------------------------------------------------------------\n\n");
 	printf("APERTE ENTER PARA VOLTAR AO MENU"); 
@@ -352,7 +348,7 @@ void consulta(Tproduto estoque[], int tamanho) {
 	return;
 	 }
 	 	else {
-		 	printf("\nO REGISTRO N√O EXISTE\n\n");
+		 	printf("\nO REGISTRO N√ÉO EXISTE\n\n");
 		 	printf("APERTE ENTER PARA VOLTAR AO MENU");
 		 	getchar(); fflush(stdin);
 		 	system("cls");
@@ -375,16 +371,16 @@ void relatorio_produto (Tproduto estoque[], int tamanho){
     ordena(estoque, tamanho);
     if (estoque[i].estoque_min > estoque[i].quantidade){ //MOSTRA ALERTA DO ESTOQUE
     printf("\n===================================================================================\n");
-    printf("Codigo: %-4ld\tNome do Produto: %-20.20s\tGrupo: %-2d\n\nDescriÁ„o: %-40.40s\tUnidade: %-2.2s\n\nFornecedor: %-40.40s\n\nPreÁo de Compra: R$ %-5.2f\tPreÁo de Venda: R$ %-5.2f\tLucro MÌnimo: %d%% \n\nQuantidade em Estoque: %-5.2f\t\tQuantidade MÌnima: %.2f\n\n\t\tALERTA: ESTOQUE ABAIXO DO MÕNIMO\n",
+    printf("Codigo: %-4ld\tNome do Produto: %-20.20s\tGrupo: %-2d\n\nDescri√ß√£o: %-40.40s\tUnidade: %-2.2s\n\nFornecedor: %-40.40s\n\nPre√ßo de Compra: R$ %-5.2f\tPre√ßo de Venda: R$ %-5.2f\tLucro M√≠nimo: %d%% \n\nQuantidade em Estoque: %-5.2f\t\tQuantidade M√≠nima: %.2f\n\n\t\tALERTA: ESTOQUE ABAIXO DO M√çNIMO\n",
 	estoque[i].codigo, estoque[i].nome, estoque[i].grupo, estoque[i].descricao, estoque[i].unidade, estoque[i].fornecedor, estoque[i].pr_compra, estoque[i].pr_venda, estoque[i].lucroMin, estoque[i].quantidade, estoque[i].estoque_min);
 	printf("-----------------------------------------------------------------------------------\n\n"); }
 	else { //MOSTRA NORMALMENTE
 	printf("\n===================================================================================\n");
-    printf("Codigo: %-4ld\tNome do Produto: %-20.20s\tGrupo: %-2d\n\nDescriÁ„o: %-40.40s\tUnidade: %-2.2s\n\nFornecedor: %-40.40s\n\nPreÁo de Compra: R$ %-10.2f\tPreÁo de Venda: R$ %-10.2f\tLucro MÌnimo: %d%% \n\nQuantidade em Estoque: %-5.2f\t\tQuantidade MÌnima: %.2f\n",
+    printf("Codigo: %-4ld\tNome do Produto: %-20.20s\tGrupo: %-2d\n\nDescri√ß√£o: %-40.40s\tUnidade: %-2.2s\n\nFornecedor: %-40.40s\n\nPre√ßo de Compra: R$ %-10.2f\tPre√ßo de Venda: R$ %-10.2f\tLucro M√≠nimo: %d%% \n\nQuantidade em Estoque: %-5.2f\t\tQuantidade M√≠nima: %.2f\n",
 	estoque[i].codigo, estoque[i].nome, estoque[i].grupo, estoque[i].descricao, estoque[i].unidade, estoque[i].fornecedor, estoque[i].pr_compra, estoque[i].pr_venda, estoque[i].lucroMin, estoque[i].quantidade, estoque[i].estoque_min);
 	printf("-----------------------------------------------------------------------------------\n\n");
 	}
-    if (i % 2 == 1 && i < tamanho - 1) { //Poderio criar outra variavel para contar o n˙mero de listas, mas isso tambÈm funciona
+    if (i % 2 == 1 && i < tamanho - 1) { //Poderio criar outra variavel para contar o n√∫mero de listas, mas isso tamb√©m funciona
         system("pause");
         system("cls");
     }
@@ -401,12 +397,12 @@ void relatorio_lista (Tproduto estoque[], int tamanho){
         return;
      }
 		int linhas = 0;
-    //cabelhaÁo
+    //cabelha√ßo
     printf("=====================================================================\n");
-    printf("Codigo     DescriÁ„o                                PreÁo\n");
+    printf("Codigo     Descri√ß√£o                                Pre√ßo\n");
 
     for (int i = 0; i < tamanho; i++) {
-        //Linha de preÁos
+        //Linha de pre√ßos
         printf("%-10d %-40.40s R$ %-8.2f\n",estoque[i].codigo, estoque[i].descricao, estoque[i].pr_venda);
         linhas++;
         //Controle de pagina
@@ -414,10 +410,10 @@ void relatorio_lista (Tproduto estoque[], int tamanho){
             printf("---------------------------------------------------------------------\n");
             system("pause");
             system("cls");
-            //Reimpremir cabelhaÁo
+            //Reimpremir cabelha√ßo
             printf("=====================================================================\n");
-            printf("Codigo     DescriÁ„o                                PreÁo\n");
-            linhas = 0; //RESETAR AS LINHAS PARA CONTAR AT… 15 TUDO DENOVO
+            printf("Codigo     Descri√ß√£o                                Pre√ßo\n");
+            linhas = 0; //RESETAR AS LINHAS PARA CONTAR AT√â 15 TUDO DENOVO
         }
     }
     printf("---------------------------------------------------------------------\n");
@@ -436,12 +432,12 @@ void relatorio_margemLucro(Tproduto estoque[], int tamanho){
 	int linhas = 0;
 
 
-    //cabelhaÁo
+    //cabelha√ßo
     printf("============================================================================================\n");
     printf("Codigo\t\tCusto\t\tVenda\t\tMargem Atual\tMargem Minima\t   Status\n");
 
     for (int i = 0; i < tamanho; i++) {
-        //Linha de preÁos
+        //Linha de pre√ßos
         if (estoque[i].lucro < estoque[i].lucroMin)
     printf("%-10d\tR$%-8.2f\tR$ %-8.2f\t%-3.0f%%\t\t%-3d%%\t\t   ABAIXO\n",estoque[i].codigo, estoque[i].pr_compra, estoque[i].pr_venda, estoque[i].lucro, estoque[i].lucroMin);
         else
@@ -452,10 +448,10 @@ void relatorio_margemLucro(Tproduto estoque[], int tamanho){
     printf("--------------------------------------------------------------------------------------------\n");
             system("pause");
             system("cls");
-            //Reimpremir cabelhaÁo
+            //Reimpremir cabelha√ßo
             printf("============================================================================================\n");
-            printf("Codigo     DescriÁ„o                                PreÁo\n");
-            linhas = 0; //RESETAR AS LINHAS PARA CONTAR AT… 15 TUDO DENOVO
+            printf("Codigo     Descri√ß√£o                                Pre√ßo\n");
+            linhas = 0; //RESETAR AS LINHAS PARA CONTAR AT√â 15 TUDO DENOVO
         }
     }
 
@@ -474,7 +470,7 @@ void excluir (Tproduto estoque[], int *tamanho){
      }
      int selecao;
      do {
-     printf("COMO VOC  GOSTARIA DE PESQUISAR?\n\n(1) - CODÕGO (Bin·ria)\n(2) - NOME (Sequencial)\n\nEscolher de acordo com o n˙mero (ou 0 para voltar): ");
+     printf("COMO VOC√ä GOSTARIA DE PESQUISAR?\n\n(1) - COD√çGO (Bin√°ria)\n(2) - NOME (Sequencial)\n\nEscolher de acordo com o n√∫mero (ou 0 para voltar): ");
      scanf("%d", &selecao); fflush(stdin);
      if (selecao == 0) {
      system("cls");
@@ -493,14 +489,14 @@ void excluir (Tproduto estoque[], int *tamanho){
             posicao=pesquisabinaria(estoque, codigo, *tamanho);
      if (posicao>=0) {//encontrou registro
     printf("\n===========================================================================\n");
-    printf("Codigo: %ld\t\tNome do Produto: %s\t\tGrupo: %d\n\nDescriÁ„o: %s\tUnidade: %s\n\nFornecedor: %s\n\nPreÁo de Compra: %.2f \tPreÁo de Venda: %.2f \tLucro MÌnimo: %d%% \n\nQuantidade em Estoque: %.2f\t\tQuantidade MÌnima: %.2f\n",
+    printf("Codigo: %ld\t\tNome do Produto: %s\t\tGrupo: %d\n\nDescri√ß√£o: %s\tUnidade: %s\n\nFornecedor: %s\n\nPre√ßo de Compra: %.2f \tPre√ßo de Venda: %.2f \tLucro M√≠nimo: %d%% \n\nQuantidade em Estoque: %.2f\t\tQuantidade M√≠nima: %.2f\n",
 	estoque[posicao].codigo, estoque[posicao].nome, estoque[posicao].grupo, estoque[posicao].descricao, estoque[posicao].unidade, estoque[posicao].fornecedor, estoque[posicao].pr_compra, estoque[posicao].pr_venda, estoque[posicao].lucroMin, estoque[posicao].quantidade, estoque[posicao].estoque_min);
 	printf("---------------------------------------------------------------------------\n\n");
 	        do {
      		printf("Confirma a exclusao do registro desse produto? (S/N) ");fflush(stdin);
             confirma=getchar(); fflush(stdin);
             if (confirma != 's' && confirma != 'S' && confirma != 'n' && confirma != 'N')
-            printf("\nOP«√O INVALIDA\n\n");
+            printf("\nOP√á√ÉO INVALIDA\n\n");
         }
         while(confirma != 's' && confirma != 'S' && confirma != 'n' && confirma != 'N');
             if (confirma == 's' || confirma == 'S'){
@@ -509,7 +505,7 @@ void excluir (Tproduto estoque[], int *tamanho){
             (*tamanho)--;
         	printf("REGISTRO REMOVIDO!\n\n");
             }else if (confirma == 'n' || confirma == 'N')
-                printf("\n O REGISTRO N√O FOI EXCLUIDO!\n\n");
+                printf("\n O REGISTRO N√ÉO FOI EXCLUIDO!\n\n");
             else {
             	printf("\n DIGITAR UM VALOR VALIDO!\n\n");
             	system("pause");
@@ -517,7 +513,7 @@ void excluir (Tproduto estoque[], int *tamanho){
             	return;
 			}
      }else
-         printf("O REGISTRO N√O FOI LOCALIZADO!\n\n"); 
+         printf("O REGISTRO N√ÉO FOI LOCALIZADO!\n\n"); 
          printf("APERTE ENTER PARA VOLTAR AO MENU");
          getchar();
          system("cls");
@@ -529,20 +525,20 @@ void excluir (Tproduto estoque[], int *tamanho){
         int posicao, i;
 		char busca[21];
         char confirma;
-        printf("Nome a ser excluÌdo: ");
+        printf("Nome a ser exclu√≠do: ");
         fgets(busca, 21, stdin);
         busca[strcspn(busca, "\n")] = '\0'; //Tira o quebra linha "\n" e recoloca para "\0"
         posicao=pesquisaSequencial(estoque, busca, *tamanho);
      if (posicao>=0) {//encontrou registro
     printf("\n===========================================================================\n");
-    printf("Codigo: %ld\t\tNome do Produto: %s\t\tGrupo: %d\n\nDescriÁ„o: %s\tUnidade: %s\n\nFornecedor: %s\n\nPreÁo de Compra: %.2f \tPreÁo de Venda: %.2f \tLucro MÌnimo: %d%% \n\nQuantidade em Estoque: %.2f\t\tQuantidade MÌnima: %.2f\n",
+    printf("Codigo: %ld\t\tNome do Produto: %s\t\tGrupo: %d\n\nDescri√ß√£o: %s\tUnidade: %s\n\nFornecedor: %s\n\nPre√ßo de Compra: %.2f \tPre√ßo de Venda: %.2f \tLucro M√≠nimo: %d%% \n\nQuantidade em Estoque: %.2f\t\tQuantidade M√≠nima: %.2f\n",
 	estoque[posicao].codigo, estoque[posicao].nome, estoque[posicao].grupo, estoque[posicao].descricao, estoque[posicao].unidade, estoque[posicao].fornecedor, estoque[posicao].pr_compra, estoque[posicao].pr_venda, estoque[posicao].lucroMin, estoque[posicao].quantidade, estoque[posicao].estoque_min);
 	printf("---------------------------------------------------------------------------\n\n");
 	        do {
      		printf("Confirma a exclusao do registro desse produto? (S/N) ");fflush(stdin);
             confirma=getchar(); fflush(stdin);
             if (confirma != 's' && confirma != 'S' && confirma != 'n' && confirma != 'N')
-            printf("\nOP«√O INVALIDA\n\n");
+            printf("\nOP√á√ÉO INVALIDA\n\n");
         }
         while(confirma != 's' && confirma != 'S' && confirma != 'n' && confirma != 'N');
             if (confirma == 's' || confirma == 'S'){
@@ -551,7 +547,7 @@ void excluir (Tproduto estoque[], int *tamanho){
             (*tamanho)--;
         	printf("REGISTRO REMOVIDO!\n\n");
             }else if (confirma == 'n' || confirma == 'N')
-                printf("\n O REGISTRO N√O FOI EXCLUIDO!\n\n");
+                printf("\n O REGISTRO N√ÉO FOI EXCLUIDO!\n\n");
             else {
             	printf("\n DIGITAR UM VALOR VALIDO!\n\n");
             	system("pause");
@@ -559,7 +555,7 @@ void excluir (Tproduto estoque[], int *tamanho){
             	return;
 			}
      }else
-         printf("O REGISTRO N√O FOI LOCALIZADO!\n\n"); 
+         printf("O REGISTRO N√ÉO FOI LOCALIZADO!\n\n"); 
          printf("APERTE ENTER PARA VOLTAR AO MENU");
          getchar();
          system("cls");
@@ -578,7 +574,7 @@ void altera (Tproduto estoque[], int *tamanho){
      
      int selecao;
      do {
-     printf("COMO VOC  GOSTARIA DE PESQUISAR?\n\n(1) - CODÕGO (Bin·ria)\n(2) - NOME (Sequencial)\n\nEscolher de acordo com o n˙mero (ou 0 para voltar): ");
+     printf("COMO VOC√ä GOSTARIA DE PESQUISAR?\n\n(1) - COD√çGO (Bin√°ria)\n(2) - NOME (Sequencial)\n\nEscolher de acordo com o n√∫mero (ou 0 para voltar): ");
      scanf("%d", &selecao); fflush(stdin);
      if (selecao == 0) {
      system("cls");
@@ -591,40 +587,40 @@ void altera (Tproduto estoque[], int *tamanho){
      switch (selecao) {
      case 1: {
      int posicao, i, codigo, selecao;
-     char confirma, correto; // uma pra confirmar o codigo e outra para a alteraÁ„o
+     char confirma, correto; // uma pra confirmar o codigo e outra para a altera√ß√£o
      Tproduto aux;
      printf("Codigo a ser alterado......: ");
 	 scanf("%d", &codigo);fflush(stdin);
      posicao=pesquisabinaria(estoque, codigo, *tamanho);
      if (posicao>=0) {//encontrou registro
     printf("\n===========================================================================\n");
-    printf("Codigo: %ld\tNome do Produto: %s\t\tGrupo: %d\n\nDescriÁ„o: %s\tUnidade: %s\n\nFornecedor: %s\n\nPreÁo de Compra: %.2f \tPreÁo de Venda: %.2f \tLucro MÌnimo: %d%% \n\nQuantidade em Estoque: %.2f\t\tQuantidade MÌnima: %.2f\n",
+    printf("Codigo: %ld\tNome do Produto: %s\t\tGrupo: %d\n\nDescri√ß√£o: %s\tUnidade: %s\n\nFornecedor: %s\n\nPre√ßo de Compra: %.2f \tPre√ßo de Venda: %.2f \tLucro M√≠nimo: %d%% \n\nQuantidade em Estoque: %.2f\t\tQuantidade M√≠nima: %.2f\n",
 	estoque[posicao].codigo, estoque[posicao].nome, estoque[posicao].grupo, estoque[posicao].descricao, estoque[posicao].unidade, estoque[posicao].fornecedor, estoque[posicao].pr_compra, estoque[posicao].pr_venda, estoque[posicao].lucroMin, estoque[posicao].quantidade, estoque[posicao].estoque_min);
 	printf("---------------------------------------------------------------------------\n\n");
 	        do {
-     		printf("Confirma a alteraÁ„o do registro desse produto? (S/N): ");fflush(stdin);
+     		printf("Confirma a altera√ß√£o do registro desse produto? (S/N): ");fflush(stdin);
             confirma=getchar(); fflush(stdin);
             if (confirma != 's' && confirma != 'S' && confirma != 'n' && confirma != 'N')
-            printf("\nOP«√O INVALIDA\n\n");
+            printf("\nOP√á√ÉO INVALIDA\n\n");
             }
             while (confirma != 's' && confirma != 'S' && confirma != 'n' && confirma != 'N');
             if (confirma == 's' || confirma == 'S'){
-                printf("\nQual desses vocÍ vai escolher pra alterar?\n\n");
+                printf("\nQual desses voc√™ vai escolher pra alterar?\n\n");
                 printf("(1) - Nome\n");
                 printf("(2) - Grupo\n");
-				printf("(3) - DescriÁao\n");
+				printf("(3) - Descri√ßao\n");
 				printf("(4) - Unidade\n");
 				printf("(5) - Fornecedor\n");
 				printf("(6) - Quantidade em Estoque\n");
-				printf("(7) - PreÁo de Compra\n");
-				printf("(8) - PreÁo de Venda\n");
-				printf("(9) - Margem de Lucro MÌnimo\n");
-				printf("(10) - Quantidade MÌnima\n\n");
+				printf("(7) - Pre√ßo de Compra\n");
+				printf("(8) - Pre√ßo de Venda\n");
+				printf("(9) - Margem de Lucro M√≠nimo\n");
+				printf("(10) - Quantidade M√≠nima\n\n");
 				do {
                 printf("Escolher de acordo com o numero: ");
                 scanf("%d", &selecao); fflush(stdin);
                 if (selecao < 1 || selecao > 10)
-                printf("\nN⁄MERO INVALIDO\n\n"); 
+                printf("\nN√öMERO INVALIDO\n\n"); 
                 }
                 while (selecao < 1 || selecao > 10);
             switch (selecao) {
@@ -649,7 +645,7 @@ void altera (Tproduto estoque[], int *tamanho){
 				case 3: {
 					fflush(stdin);
             		do{
-                        printf ("DescriÁ„o ..................................: ");
+                        printf ("Descri√ß√£o ..................................: ");
                         scanf ("%40[^\n]s",&estoque[posicao].descricao); 
 						fflush(stdin);
                     }while(aux.descricao<0);
@@ -685,7 +681,7 @@ void altera (Tproduto estoque[], int *tamanho){
 				case 7: {
 					fflush(stdin);
             		do{
-                        printf ("PreÁo de Compra ..................................: ");
+                        printf ("Pre√ßo de Compra ..................................: ");
                         scanf ("%f",&estoque[posicao].pr_compra); 
 						fflush(stdin);
 						aux.lucro = ((aux.pr_venda - aux.pr_compra) / aux.pr_venda) * 100;
@@ -695,7 +691,7 @@ void altera (Tproduto estoque[], int *tamanho){
 				case 8: {
 					fflush(stdin);
             		do{
-                        printf ("PreÁo de Venda ..................................: ");
+                        printf ("Pre√ßo de Venda ..................................: ");
                         scanf ("%f",&estoque[posicao].pr_venda); 
 						fflush(stdin);
 						aux.lucro = ((aux.pr_venda - aux.pr_compra) / aux.pr_venda) * 100;
@@ -705,7 +701,7 @@ void altera (Tproduto estoque[], int *tamanho){
 				case 9: {
 					fflush(stdin);
             		do{
-                        printf ("Margem de Lucro MÌnimo ..................................: ");
+                        printf ("Margem de Lucro M√≠nimo ..................................: ");
                         scanf ("%d",&estoque[posicao].lucroMin); 
 						fflush(stdin);
                     }while(aux.lucroMin<0);
@@ -714,7 +710,7 @@ void altera (Tproduto estoque[], int *tamanho){
 				case 10: {
 					fflush(stdin);
             		do{
-                        printf ("Quantidade MÌnima ..................................: ");
+                        printf ("Quantidade M√≠nima ..................................: ");
                         scanf ("%f",&estoque[posicao].estoque_min); 
 						fflush(stdin);
                     }while(aux.estoque_min<0);
@@ -723,7 +719,7 @@ void altera (Tproduto estoque[], int *tamanho){
 			}
 			printf("\nREGISTRO ALTERADO COM SUCESSO!\n\n");
             }else if (confirma == 'n' || confirma == 'N')
-                printf("\n O REGISTRO N√O FOI ALTERADO!\n\n");
+                printf("\n O REGISTRO N√ÉO FOI ALTERADO!\n\n");
             else {
             	printf("\n DIGITAR UM VALOR VALIDO!\n\n");
             	system("pause");
@@ -732,7 +728,7 @@ void altera (Tproduto estoque[], int *tamanho){
 			}
      }
  else
-    printf("O REGISTRO N√O FOI LOCALIZADO!\n\n");
+    printf("O REGISTRO N√ÉO FOI LOCALIZADO!\n\n");
     printf("APERTE ENTER PARA VOLTAR AO MENU");
     getchar();
     system("cls");
@@ -742,7 +738,7 @@ void altera (Tproduto estoque[], int *tamanho){
 case 2: {
 	 int posicao, i, selecao;
 	 char busca[21];
-     char confirma, correto; // uma pra confirmar o codigo e outra para a alteraÁ„o
+     char confirma, correto; // uma pra confirmar o codigo e outra para a altera√ß√£o
      Tproduto aux;
      printf("Inserir o nome para alterar o codigo......: ");
 	 fgets(busca, 21, stdin);
@@ -750,33 +746,33 @@ case 2: {
      posicao=pesquisaSequencial(estoque, busca, *tamanho);
      if (posicao>=0) {//encontrou registro
     printf("\n===========================================================================\n");
-    printf("Codigo: %ld\tNome do Produto: %s\t\tGrupo: %d\n\nDescriÁ„o: %s\tUnidade: %s\n\nFornecedor: %s\n\nPreÁo de Compra: %.2f \tPreÁo de Venda: %.2f \tLucro MÌnimo: %d%% \n\nQuantidade em Estoque: %.2f\t\tQuantidade MÌnima: %.2f\n",
+    printf("Codigo: %ld\tNome do Produto: %s\t\tGrupo: %d\n\nDescri√ß√£o: %s\tUnidade: %s\n\nFornecedor: %s\n\nPre√ßo de Compra: %.2f \tPre√ßo de Venda: %.2f \tLucro M√≠nimo: %d%% \n\nQuantidade em Estoque: %.2f\t\tQuantidade M√≠nima: %.2f\n",
 	estoque[posicao].codigo, estoque[posicao].nome, estoque[posicao].grupo, estoque[posicao].descricao, estoque[posicao].unidade, estoque[posicao].fornecedor, estoque[posicao].pr_compra, estoque[posicao].pr_venda, estoque[posicao].lucroMin, estoque[posicao].quantidade, estoque[posicao].estoque_min);
 	printf("---------------------------------------------------------------------------\n\n");
 	        do {
-     		printf("Confirma a alteraÁ„o do registro desse produto? (S/N): ");fflush(stdin);
+     		printf("Confirma a altera√ß√£o do registro desse produto? (S/N): ");fflush(stdin);
             confirma=getchar(); fflush(stdin);
             if (confirma != 's' && confirma != 'S' && confirma != 'n' && confirma != 'N')
-            printf("\nOP«√O INVALIDA\n\n");
+            printf("\nOP√á√ÉO INVALIDA\n\n");
             }
             while (confirma != 's' && confirma != 'S' && confirma != 'n' && confirma != 'N');
             if (confirma == 's' || confirma == 'S'){
-                printf("\nQual desses vocÍ vai escolher pra alterar?\n\n");
+                printf("\nQual desses voc√™ vai escolher pra alterar?\n\n");
                 printf("(1) - Nome\n");
                 printf("(2) - Grupo\n");
-				printf("(3) - DescriÁao\n");
+				printf("(3) - Descri√ßao\n");
 				printf("(4) - Unidade\n");
 				printf("(5) - Fornecedor\n");
 				printf("(6) - Quantidade em Estoque\n");
-				printf("(7) - PreÁo de Compra\n");
-				printf("(8) - PreÁo de Venda\n");
-				printf("(9) - Margem de Lucro MÌnimo\n");
-				printf("(10) - Quantidade MÌnima\n\n");
+				printf("(7) - Pre√ßo de Compra\n");
+				printf("(8) - Pre√ßo de Venda\n");
+				printf("(9) - Margem de Lucro M√≠nimo\n");
+				printf("(10) - Quantidade M√≠nima\n\n");
 				do {
                 printf("Escolher de acordo com o numero: ");
                 scanf("%d", &selecao); fflush(stdin);
                 if (selecao < 1 || selecao > 10)
-                printf("\nN⁄MERO INVALIDO\n\n"); 
+                printf("\nN√öMERO INVALIDO\n\n"); 
                 }
                 while (selecao < 1 || selecao > 10);
             switch (selecao) {
@@ -801,7 +797,7 @@ case 2: {
 				case 3: {
 					fflush(stdin);
             		do{
-                        printf ("DescriÁ„o ..................................: ");
+                        printf ("Descri√ß√£o ..................................: ");
                         scanf ("%40[^\n]s",&estoque[posicao].descricao); 
 						fflush(stdin);
                     }while(aux.descricao<0);
@@ -837,7 +833,7 @@ case 2: {
 				case 7: {
 					fflush(stdin);
             		do{
-                        printf ("PreÁo de Compra ..................................: ");
+                        printf ("Pre√ßo de Compra ..................................: ");
                         scanf ("%f",&estoque[posicao].pr_compra); 
 						fflush(stdin);
 						aux.lucro = ((aux.pr_venda - aux.pr_compra) / aux.pr_venda) * 100;
@@ -847,7 +843,7 @@ case 2: {
 				case 8: {
 					fflush(stdin);
             		do{
-                        printf ("PreÁo de Venda ..................................: ");
+                        printf ("Pre√ßo de Venda ..................................: ");
                         scanf ("%f",&estoque[posicao].pr_venda); 
 						fflush(stdin);
 						aux.lucro = ((aux.pr_venda - aux.pr_compra) / aux.pr_venda) * 100;
@@ -857,7 +853,7 @@ case 2: {
 				case 9: {
 					fflush(stdin);
             		do{
-                        printf ("Margem de Lucro MÌnimo ..................................: ");
+                        printf ("Margem de Lucro M√≠nimo ..................................: ");
                         scanf ("%d",&estoque[posicao].lucroMin); 
 						fflush(stdin);
                     }while(aux.lucroMin<0);
@@ -866,7 +862,7 @@ case 2: {
 				case 10: {
 					fflush(stdin);
             		do{
-                        printf ("Quantidade MÌnima ..................................: ");
+                        printf ("Quantidade M√≠nima ..................................: ");
                         scanf ("%f",&estoque[posicao].estoque_min); 
 						fflush(stdin);
                     }while(aux.estoque_min<0);
@@ -875,7 +871,7 @@ case 2: {
 			}
 			printf("\nREGISTRO ALTERADO COM SUCESSO!\n\n");
             }else if (confirma == 'n' || confirma == 'N')
-                printf("\n O REGISTRO N√O FOI ALTERADO!\n\n");
+                printf("\n O REGISTRO N√ÉO FOI ALTERADO!\n\n");
             else {
             	printf("\n DIGITAR UM VALOR VALIDO!\n\n");
             	system("pause");
@@ -884,7 +880,7 @@ case 2: {
 			}
      }
  else
-    printf("O REGISTRO N√O FOI LOCALIZADO!\n\n");
+    printf("O REGISTRO N√ÉO FOI LOCALIZADO!\n\n");
     printf("APERTE ENTER PARA VOLTAR AO MENU");
     getchar();
     system("cls");
@@ -901,21 +897,21 @@ void movimentacao (Tproduto estoque[], int *tamanho){
         return;
      }
      int posicao, i, codigo, selecao;
-     char confirma, correto; // uma pra confirmar o codigo e outra para a alteraÁ„o
+     char confirma, correto; // uma pra confirmar o codigo e outra para a altera√ß√£o
      Tproduto aux;
      printf("Codigo......: ");
 	 scanf("%d", &codigo);fflush(stdin);
      posicao=pesquisabinaria(estoque, codigo, *tamanho);
      if (posicao>=0) {//encontrou registro
     printf("\n===========================================================================\n");
-    printf("Codigo: %ld\n\nNome do Produto: %s\n\nDescriÁ„o: %s\n\nUnidade: %s\n\nFornecedor: %s\n\n",
+    printf("Codigo: %ld\n\nNome do Produto: %s\n\nDescri√ß√£o: %s\n\nUnidade: %s\n\nFornecedor: %s\n\n",
 	estoque[posicao].codigo, estoque[posicao].nome, estoque[posicao].descricao, estoque[posicao].unidade, estoque[posicao].fornecedor);
 	printf("---------------------------------------------------------------------------\n\n");
 	        do {
      		printf("Confirma a compra desse produto? (S/N): ");fflush(stdin);
             confirma=getchar(); fflush(stdin);
             if (confirma != 's' && confirma != 'S' && confirma != 'n' && confirma != 'N')
-            printf("\nOP«√O INVALIDA\n\n");
+            printf("\nOP√á√ÉO INVALIDA\n\n");
             }
             while (confirma != 's' && confirma != 'S' && confirma != 'n' && confirma != 'N');
             if (confirma == 's' || confirma == 'S'){
@@ -933,7 +929,7 @@ void movimentacao (Tproduto estoque[], int *tamanho){
                     }while(aux.quantidade<0);
 					fflush(stdin);
             		do{
-                        printf ("PreÁo de Compra ......................................: ");
+                        printf ("Pre√ßo de Compra ......................................: ");
                         scanf ("%f",&estoque[posicao].pr_compra); 
 						fflush(stdin);
                     }while(aux.pr_compra<0);
@@ -941,7 +937,7 @@ void movimentacao (Tproduto estoque[], int *tamanho){
                     printf("\nREGISTRO MOVIMENTADO COM SUCESSO!\n\n");
 			}
             else if (confirma == 'n' || confirma == 'N')
-                printf("\n MOVIMENTA«√O CANCELADA!\n\n");
+                printf("\n MOVIMENTA√á√ÉO CANCELADA!\n\n");
             /*else {
             	printf("\n DIGITAR UM VALOR VALIDO!\n\n"); //isso ficou obsoleto, mas deixo ai para um caso especial
             	system("pause");
@@ -949,10 +945,9 @@ void movimentacao (Tproduto estoque[], int *tamanho){
             	return; 
 		}*/
 	}else
-    printf("O REGISTRO N√O FOI LOCALIZADO!\n\n");
+    printf("O REGISTRO N√ÉO FOI LOCALIZADO!\n\n");
     printf("APERTE ENTER PARA VOLTAR AO MENU");
     getchar();
     system("cls");
     return;
 }
-
